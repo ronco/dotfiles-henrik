@@ -1,15 +1,10 @@
 [user]
-	name = Henrik Nyh
-	email = henrik@nyh.se
+	name = Ron
+	email = ronco@costite.com
 [core]
-	excludesfile = /Users/henrik/.gitignore
+	excludesfile = /Users/ronco/.gitignore
 	ignorecase = false
-[color]
-	status = auto
-	diff = auto
-	branch = auto
-[branch "master"]
-	merge = master
+	editor = emacs
 [alias]
 	who = shortlog -s -n --no-merges
 	standup = shortlog --since=yesterday
@@ -18,20 +13,10 @@
 	unref = reset --soft HEAD@{1}
 	subs = submodule foreach git pull origin master
         hist = recent-branches
-[gist]
-	private = yes
-	extension = rb
-[init]
-	templatedir = ~/.git_template
-[push]
-	default = current
-[web]
-	browser = open
-[merge]
-	tool = vimdiff
-
-[mergetool "vimdiff"]
-	cmd = vim -d "$LOCAL" "$MERGED" "$REMOTE"
-	trustExitCode = true
-[branch]
-	autosetuprebase = always
+        ci = commit
+        rms = "!f(){ git rm --cached \"$1\";rm -r \"$1\";git config -f .gitmodules --remove-section \"submodule.$1\";git config -f .git/config --remove-section \"submodule.$1\";git add .gitmodules; }; f"
+        lol = "log --pretty=oneline --abbrev-commit --graph --decorate"
+        lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+        lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+        lg = !"git lg1"
+        forkdiff = !bash -c 'git diff $(git merge-base "$1" "$2") "$2" "${@: 3}" ' -

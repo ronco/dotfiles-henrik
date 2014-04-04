@@ -3,14 +3,14 @@
 echo "Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)."
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-echo "Disable menu bar transparency."
-defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
+# echo "Disable menu bar transparency."
+# defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
 echo "Expand save panel by default."
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
-echo "Disable the 'Are you sure you want to open this application?' dialog."
-defaults write com.apple.LaunchServices LSQuarantine -bool false
+# echo "Disable the 'Are you sure you want to open this application?' dialog."
+# defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 echo "Disable window animations."
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
@@ -26,16 +26,16 @@ sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 killall SystemUIServer
 
 # http://osxdaily.com/2011/01/26/change-the-screenshot-save-file-location-in-mac-os-x/
-echo "Change screenshot location."
-mkdir -p ~/Desktop/Screenshots
-defaults write com.apple.screencapture location ~/Desktop/Screenshots/
-killall SystemUIServer
+# echo "Change screenshot location."
+# mkdir -p ~/Desktop/Screenshots
+# defaults write com.apple.screencapture location ~/Desktop/Screenshots/
+# killall SystemUIServer
 
 echo "Set a blazingly fast keyboard repeat rate."
-defaults write NSGlobalDomain KeyRepeat -int 0.02
+defaults write NSGlobalDomain KeyRepeat -int 0.04
 
 echo "Set a shorter Delay until key repeat."
-defaults write NSGlobalDomain InitialKeyRepeat -int 12
+defaults write NSGlobalDomain InitialKeyRepeat -int 18
 
 echo "Increase window resize speed for Cocoa applications."
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001

@@ -8,8 +8,8 @@
 #
 # Configure:
 
-TO = "henrik@nyh.se"
-LOGIN = "robot@nyh.se"
+TO = "ronco@costite.com"
+LOGIN = "ronco@costite.com"
 PW = File.read(File.expand_path("~/.gmailpw")).chop
 
 # Intended to be used with an Alfred.app extension like:
